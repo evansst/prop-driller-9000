@@ -1,15 +1,19 @@
-import React from 'react';
+import React, { Component } from 'react';
 
-function Header() {
+class Header extends Component {
 
-  return (
-    <header>
-      <img
-        src = ""
-        alt = "logo"
-      />
-    </header>
-  );
+  render() {
+    return (
+      <header>
+        <img
+          src = {this.props.src}
+          alt = "logo"
+          onClick = {() => this.props.handleClick()}
+        />
+      </header>
+    )
+  }
+
 }
 
 export default Header;

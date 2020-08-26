@@ -3,6 +3,7 @@ import React from 'react';
 import './App.css';
 
 import Header from './Components/Header';
+import Transformer from './Components/Transformer';
 
 export default class App extends React.Component {
   state = {
@@ -22,13 +23,38 @@ export default class App extends React.Component {
         name: 'omega',
         url: 'http://pngimg.com/uploads/transformers/transformers_PNG3.png'
       }
-    ]
+    ],
+    displayTransformer: true,
+    index: 0
   }
+
+  handleHeaderClick() {
+    console.log(this)
+    // this.state.displayTransformer
+    //   ? this.setState({displayTransformer: false})
+    //   : this.setState({displayTransformer: true})
+  }
+
+  handleTransformerClick() {
+    if(this.state.index + 1 === this.state.proptimusii.length) {
+      this.setState({
+        index: 0
+      })
+    } else {
+      this.setState({
+        index: this.state.index + 1 
+      })
+    }
+    console.log(this.state.index)
+  } 
 
   render() {
     return (
       <div className="App">
-        <Header />
+        <Header src={this.state.proptimusLogo} handleClick={this.handleHeaderClick}/>
+        { this.state.displayTransformer
+          ? <Transformer src={this.state.proptimusii[this.state.index].url} alt={this.state.proptimusii[this.state.index].name} handleClick={this.handleTransformerClick}/>
+          : <div/>}
       </div>
     );
   }

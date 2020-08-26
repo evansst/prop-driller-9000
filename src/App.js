@@ -3,7 +3,7 @@ import React from 'react';
 import './App.css';
 
 import Header from './Components/Header';
-import Transformer from './Components/Transformer';
+import TransformersSection from './Containers/TransformersSection';
 
 export default class App extends React.Component {
   state = {
@@ -24,16 +24,27 @@ export default class App extends React.Component {
         url: 'http://pngimg.com/uploads/transformers/transformers_PNG3.png'
       }
     ],
+    isOn: false,
+    displayIndex: 0,
   }
 
+  handleHeaderClick = () => {
+    this.setState({
+      isOn: !this.state.isOn,
+    })
+  }
 
-  handleTransformerClick() {  } 
+  handleTransformerClick = () => {
+    this.state.displayIndex < 2
+      ? this.setState({displayIndex: this.state.displayIndex + 1})
+      : this.setState({displayIndex: 0})
+  } 
 
   render() {
     return (
       <div className="App">
-        <Header src={this.state.proptimusLogo} />
-        {this.state.proptimusii.map(proptimus => <Transformer src={proptimus.url} alt={proptimus.name}/>)}
+        <Header src={this.state.proptimusLogo} handleClick={this.handleHeaderClick}/>
+        <TransformersSection isOn={this.state.isOn} transformers={this.state.proptimusii} displayIndex={this.state.displayIndex} handleClick={this.handleTransformerClick}/>
       </div>
     );
   }

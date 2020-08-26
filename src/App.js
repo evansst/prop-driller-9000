@@ -32,7 +32,7 @@ export default class App extends React.Component {
   render() {
     return (
       <div className="App">
-        <Header src={this.state.proptimusLogo} handleClick={this.handleHeaderClick}/>
+        <Header src={this.state.proptimusLogo} />
         {this.state.proptimusii.map(proptimus => <Transformer src={proptimus.url} alt={proptimus.name}/>)}
       </div>
     );

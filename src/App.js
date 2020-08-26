@@ -24,37 +24,16 @@ export default class App extends React.Component {
         url: 'http://pngimg.com/uploads/transformers/transformers_PNG3.png'
       }
     ],
-    displayTransformer: true,
-    index: 0
   }
 
-  handleHeaderClick() {
-    console.log(this)
-    // this.state.displayTransformer
-    //   ? this.setState({displayTransformer: false})
-    //   : this.setState({displayTransformer: true})
-  }
 
-  handleTransformerClick() {
-    if(this.state.index + 1 === this.state.proptimusii.length) {
-      this.setState({
-        index: 0
-      })
-    } else {
-      this.setState({
-        index: this.state.index + 1 
-      })
-    }
-    console.log(this.state.index)
-  } 
+  handleTransformerClick() {  } 
 
   render() {
     return (
       <div className="App">
         <Header src={this.state.proptimusLogo} handleClick={this.handleHeaderClick}/>
-        { this.state.displayTransformer
-          ? <Transformer src={this.state.proptimusii[this.state.index].url} alt={this.state.proptimusii[this.state.index].name} handleClick={this.handleTransformerClick}/>
-          : <div/>}
+        {this.state.proptimusii.map(proptimus => <Transformer src={proptimus.url} alt={proptimus.name}/>)}
       </div>
     );
   }

@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 
 class Header extends Component {
+  state = {
+    displayTransformer: false,
+  }
 
   render() {
     return (
@@ -8,7 +11,7 @@ class Header extends Component {
         <img
           src = {this.props.src}
           alt = "logo"
-          onClick = {() => this.props.handleClick()}
+          onClick = {this.props.handleClick}
         />
       </header>
     )

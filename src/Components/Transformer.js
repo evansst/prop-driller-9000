@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 
 class Transformer extends Component {
+  state = {
+    index: 0
+  }
 
   render() { 
     return (

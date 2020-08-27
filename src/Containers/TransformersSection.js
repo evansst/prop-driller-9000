@@ -6,7 +6,7 @@ class TransformersSection extends Component {
   render() {
     return (
       <section className = "transformers-section" onClick={this.props.handleClick}>
-        {this.props.isOn ? this.toTransformerComponent(this.props.transformers[this.props.displayIndex]) : <div/>}
+        {this.props.isOn ? this.toTransformerComponent(this.props.transformers[this.props.displayIndex]) : undefined }
       </section>
     );
   }

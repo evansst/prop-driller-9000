@@ -21,9 +21,7 @@ class TransformersSection extends Component {
     return (
       <Transformer 
         key={transformer.id}
-        id={transformer.id}
-        src={transformer.url}
-        alt={transformer.name}
+        transformer={transformer}
       />
     )
   }

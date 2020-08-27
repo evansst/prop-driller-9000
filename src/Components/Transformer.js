@@ -1,6 +1,6 @@
 import React from 'react';
 
-function Transformer(props) {
+export default function Transformer(props) {
   const { 
     transformer: { id, name, url, },
     handleClick, 
@@ -16,5 +16,3 @@ function Transformer(props) {
     />
   );
 }
-
-export default Transformer;

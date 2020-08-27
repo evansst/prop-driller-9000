@@ -25,7 +25,6 @@ export default class App extends Component {
       }
     ],
     isOn: false,
-    displayIndex: 0,
   }
 
   handleHeaderClick = () => {
@@ -34,11 +33,7 @@ export default class App extends Component {
     })
   }
 
-  handleTransformerClick = () => {
-    this.state.displayIndex < 2
-      ? this.setState({displayIndex: this.state.displayIndex + 1})
-      : this.setState({displayIndex: 0})
-  } 
+
 
   render() {
     const { 
@@ -55,8 +50,6 @@ export default class App extends Component {
         <TransformersSection
           isOn={isOn} 
           transformers={proptimusii} 
-          displayIndex={displayIndex} 
-          handleClick={this.handleTransformerClick}
         />
       </div>
     );

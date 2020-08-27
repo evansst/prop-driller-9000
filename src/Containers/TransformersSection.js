@@ -1,16 +1,22 @@
 import React, { Component } from 'react';
 import Transformer from '../Components/Transformer';
 
-class TransformersSection extends Component {
+export default class TransformersSection extends Component {
+  state = {
+    displayIndex: 0,
+  }
+
+
 
   
   render() {
-    const { isOn, handleClick, displayIndex, transformers, } = this.props
+    const { isOn, transformers, } = this.props
+    const { displayIndex } = this.state
 
     return (
       <section className = "transformers-section">
         { isOn 
-          ? this.toTransformerComponent(transformers[displayIndex])(handleClick)
+          ? this.toTransformerComponent(transformers[displayIndex])(this.handleTransformerClick)
           : undefined
         }
       </section>
@@ -25,9 +31,13 @@ class TransformersSection extends Component {
           transformer={transformer}
           handleClick={handleClick}
         />
-    )
+      )
     }
   }
-}
 
-export default TransformersSection;
+  handleTransformerClick = () => {
+    this.state.displayIndex < 2
+      ? this.setState({displayIndex: this.state.displayIndex + 1})
+      : this.setState({displayIndex: 0})
+  } 
+}

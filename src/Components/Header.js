@@ -1,8 +1,8 @@
 import React from 'react';
 
-function Header(props){
+export default function Header(props){
   const { logo, handleClick, } = props
-  
+
   return (
     <header>
       <img
@@ -13,5 +13,3 @@ function Header(props){
     </header>
   )
 }
-
-export default Header;

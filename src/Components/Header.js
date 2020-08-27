@@ -1,6 +1,8 @@
 import React from 'react';
 
-function Header({ logo, handleClick, }){
+function Header(props){
+  const { logo, handleClick, } = props
+  
   return (
     <header>
       <img

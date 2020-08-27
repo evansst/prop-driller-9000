@@ -8,9 +8,9 @@ class TransformersSection extends Component {
     const { isOn, handleClick, displayIndex, transformers, } = this.props
 
     return (
-      <section className = "transformers-section" onClick={handleClick}>
+      <section className = "transformers-section">
         { isOn 
-          ? this.toTransformerComponent(transformers[displayIndex])
+          ? this.toTransformerComponent(transformers[displayIndex])(handleClick)
           : undefined
         }
       </section>
@@ -18,12 +18,15 @@ class TransformersSection extends Component {
   }
   
   toTransformerComponent(transformer) {
-    return (
-      <Transformer 
-        key={transformer.id}
-        transformer={transformer}
-      />
+    return (handleClick) => {
+      return (
+        <Transformer 
+          key={transformer.id}
+          transformer={transformer}
+          handleClick={handleClick}
+        />
     )
+    }
   }
 }
 

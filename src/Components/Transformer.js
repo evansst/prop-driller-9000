@@ -1,7 +1,10 @@
 import React from 'react';
 
 function Transformer(props) {
-  const { id, name, url, } = props.transformer
+  const { 
+    transformer: { id, name, url, },
+    handleClick, 
+  } = props
 
   return (
     <img
@@ -9,6 +12,7 @@ function Transformer(props) {
       id = {id}
       src = {url}
       alt = {name}
+      onClick = {handleClick}
     />
   );
 }

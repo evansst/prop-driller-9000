@@ -3,10 +3,16 @@ import Transformer from '../Components/Transformer';
 
 class TransformersSection extends Component {
 
+  
   render() {
+    const { isOn, handleClick, displayIndex, transformers, } = this.props
+
     return (
-      <section className = "transformers-section" onClick={this.props.handleClick}>
-        {this.props.isOn ? this.toTransformerComponent(this.props.transformers[this.props.displayIndex]) : undefined }
+      <section className = "transformers-section" onClick={handleClick}>
+        { isOn 
+          ? this.toTransformerComponent(transformers[displayIndex])
+          : undefined
+        }
       </section>
     );
   }

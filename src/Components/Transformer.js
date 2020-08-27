@@ -1,16 +1,14 @@
-import React, { Component } from 'react';
+import React from 'react';
 
-class Transformer extends Component {
-  render() { 
-    return (
-      <img
-        className = 'transformer'
-        src = {this.props.src}
-        alt = {this.props.alt}
-        onClick = {this.props.handleClick}
-      />
-    );
-  }
+function Transformer({ src, alt, handleClick, }) {
+  return (
+    <img
+      className = 'transformer'
+      src = {src}
+      alt = {alt}
+      onClick = {handleClick}
+    />
+  );
 }
 
 export default Transformer;
